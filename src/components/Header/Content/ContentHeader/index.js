@@ -17,14 +17,14 @@ export default function ContentHeader () {
     const [isSeriesClicked, setSeriesClicked] = useState(false);
 
     return(
-    <div className={`flex justify-center items-center gap-5`}>
+    <div className={`flex justify-center items-center gap-5 font-bold text-white`}>
         <Link href={"#"} className="text-2xl cursor-pointer mr-10">MoviList</Link>
         <ul className="flex gap-7">
             <li className="group">
                 <input type="button" className="cursor-pointer" value={"Movies"} onClick={() => setMovieClicked(!isMovieClicked)} />
                 <ListContent isMovieClicked={isMovieClicked} />
             </li>
-            <li>
+            <li className="group">
                 <input type="button" className="cursor-pointer" value={"TV Series"} onClick={() => setSeriesClicked(!isSeriesClicked)} />
                 <ListContent isSeriesClicked={isSeriesClicked} />
             </li>
@@ -35,7 +35,7 @@ export default function ContentHeader () {
 
 function ListContent({ isMovieClicked, isSeriesClicked }) {
     return(
-        <ul className={"absolute rounded-md border-gray-200 border-2 w-fit h-auto p-4 bg-white " + (isMovieClicked||isSeriesClicked ? "" : "hidden")}>
+        <ul className={"absolute rounded-md w-fit h-auto p-4 bg-red-900 font-bold text-white shadow-md " + (isMovieClicked||isSeriesClicked ? "" : "hidden")}>
             <li className="transform transition-transform duration-300 hover:translate-x-2 ease-in-out">
                 <Link href={"#"}>Popular</Link>
             </li>

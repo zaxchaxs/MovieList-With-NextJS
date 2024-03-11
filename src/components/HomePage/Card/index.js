@@ -4,10 +4,22 @@ import { useState } from "react";
 
 export default function Card({datas}) {
     const [limitData, setLimitData] = useState(14);
+    const [isShowAllData, setShowAllData] = useState(true);
 
+    // handler functions
+
+    const handleSeeMoreData = () => {
+        isShowAllData ? setLimitData(datas.length) : setLimitData(14)
+        setShowAllData(!isShowAllData);
+    }
     return (
-        <>
-            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div className="w-full">
+            <div className="flex justify-center p-4 items-center">
+                <div className="font-bold text-2xl">
+                    <h1 className="">Popular Movies & TV Series</h1>
+                </div>
+            </div>
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 font-bold">
                 {
                 datas.map((data, index) => {
                     if(index > limitData) return;
@@ -20,6 +32,12 @@ export default function Card({datas}) {
                     })
                 }
             </ul>
-        </>
-    )
+            <div className="flex justify-center m-2">
+                <div className=" m-2 px-2 py-1 rounded-md bg-red-800 w-fit font-bold text-sm hover:bg-red-500 hover:scale-105 active:bg-red-800 text-white cursor-pointer" onClick={handleSeeMoreData}>
+                        <button>{isShowAllData ? "See More" : "Show Less"}</button>
+                </div>
+
+            </div>
+        </div>  
+ )
 }

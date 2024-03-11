@@ -33,12 +33,8 @@ export default function HomePage() {
     
     return(
         <>
-            <div className="w-full rounded-md border-red-400 border-2" >
-                <Banner datas={temporaryData} />
-            </div>
-            <div className="w-full">
-                <Card datas={temporaryData} />
-            </div>
+            <Banner datas={temporaryData} />
+            <Card datas={temporaryData} />
         </>
     )
 }

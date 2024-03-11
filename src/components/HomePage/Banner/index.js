@@ -5,14 +5,8 @@ import { useState } from "react"
 export default function Banner({ datas }) {
 
     const [index, setIndex] = useState(0);
-
-    const dataBanner = datas.slice(index, index+3);
-
     return (
-        <>
-        {/* // <div className="flex rounded-lg w-full justify-center items-center ">
-        //     <Image alt={datas[3].title ? datas[3].title : datas[3].name} className="img-banner rounded-lg" width={500} height={500} src={`https://image.tmdb.org/t/p/w500${datas[3].backdrop_path}`} />
-        // </div> */}
+        <div className="w-full rounded-md border-red-300 border-2 bg-background-banner bg-black" >    
             <ul className="flex justify-center items-center p-4" >
                 {/* {
                     dataBanner.map((e, i) => {
@@ -26,7 +20,7 @@ export default function Banner({ datas }) {
                         // }
                     })
                 } */}
-                <li className="hover:scale-105 transition-all ease-in-out duration-300 shadow-lg " >
+                <li className="hover:scale-105 transition-all ease-in-out duration-300 shadow-lg" >
                     <Link href={"#"} >
                         <Image alt={datas[(index)].title ? datas[index].title : datas[index].name} className="rounded-md w-fit" width={600} height={600} src={`https://image.tmdb.org/t/p/w500${datas[index].backdrop_path}`} />
                     </Link>
@@ -61,13 +55,13 @@ export default function Banner({ datas }) {
 
 
             </ul>
-            <div className="border-2 border-black">
+            <div className="border-2 border-black hidden">
                 <input type="button" value={"Click this!"} className="cursor-pointer" onClick={() => setIndex((index) => index+1)} />
             </div>
-            <div className="border-2 border-black">
+            <div className="border-2 border-black hidden">
                 <input type="button" value={"Click this!"} className="cursor-pointer" onClick={() => setIndex((index) => index-1)} />
             </div>
-        </>
+        </div>
         
     )
 }
