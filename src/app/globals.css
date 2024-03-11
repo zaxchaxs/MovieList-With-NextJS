@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.img-banner {
-    width: auto;
-    height: auto;
-}
+/* .img-banner {
+    width: 100%;
+
+} */

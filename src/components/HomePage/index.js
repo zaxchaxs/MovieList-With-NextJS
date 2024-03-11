@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Banner from "./Banner";
+import temporaryData from "../temporaryData";
+import Card from "./Card";
 
 export default function HomePage() {
     const [data, setData] = useState([]);
@@ -13,23 +15,30 @@ export default function HomePage() {
                 Authorization: `Bearer ${process.env.API_READ_ACCESS_TOKEN}`
             }
         };
-        const fetchData = async () => {
-            try{
-                const res = await axios.get(`${process.env.API_BASE_ENDPOINT}/trending/all/day?language=en-US`, options);
-                const datas = res.data.results;
-                setData(datas);
-                console.log(datas);
-            } catch(e) {
-                throw new Error(e)
-            }
-        }
+        setData(temporaryData);
+        // const fetchData = async () => {
 
-        fetchData();
+            // try{
+            //     const res = await axios.get(`${process.env.API_BASE_ENDPOINT}/trending/all/day?language=en-US`, options);
+            //     const datas = res.data.results;
+            //     setData(datas);
+            //     console.log(datas);
+            // } catch(e) {
+            //     throw new Error(e)
+            // }
+        // }
+
+        // fetchData();
     }, [])
-
+    
     return(
         <>
-            <Banner datas={data} />
+            <div className="w-full rounded-md border-red-400 border-2" >
+                <Banner datas={temporaryData} />
+            </div>
+            <div className="w-full">
+                <Card datas={temporaryData} />
+            </div>
         </>
     )
 }
