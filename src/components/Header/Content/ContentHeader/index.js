@@ -19,7 +19,7 @@ export default function ContentHeader () {
     return(
     <div className={`flex justify-center items-center gap-5 font-bold text-white`}>
         <Link href={"#"} className="text-2xl cursor-pointer mr-10">MoviList</Link>
-        <ul className="flex gap-7">
+        <ul className="flex gap-7 text-base">
             <li className="group">
                 <input type="button" className="cursor-pointer" value={"Movies"} onClick={() => setMovieClicked(!isMovieClicked)} />
                 <ListContent isMovieClicked={isMovieClicked} />
