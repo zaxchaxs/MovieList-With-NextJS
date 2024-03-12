@@ -6,3 +6,9 @@
     width: 100%;
 
 } */
+
+.bg-banner {
+    background-image: url('../../public/background/bg-banner.jpg');
+    background-size: cover;
+    /* filter: blur(5px); */
+}
