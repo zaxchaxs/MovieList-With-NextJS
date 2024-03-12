@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useState } from "react"
 import arrowBackIcon from '@/../public/icon/arrow-back.svg'
 import arrowForward from '@/../public/icon/arrow-forward.svg'
+import { data } from "autoprefixer"
 
 export default function Banner({ datas }) {
 
@@ -25,7 +26,7 @@ export default function Banner({ datas }) {
     };
 
     return (
-        <div className="w-full -mt-1 mx-auto bg-banner -z-10 flex gap-8 lg:gap-24 items-center p-4" >
+        <div className="w-full -mt-1 mx-auto bg-banner -z-10 flex gap-8 lg:gap-24 items-center p-4 h-80" >
             <div className="text-white font-bold w-full md:w-1/2 p-4 h-full">
                 <h1 className="text-5xl m-2">Welcome.</h1>
                 <h1 className="text-2xl m-2">Check the details of your favorite movies or tv series below.</h1>
@@ -38,13 +39,21 @@ export default function Banner({ datas }) {
             </div>
             <div className="group hidden md:flex items-center text-white w-1/2 gap-2">
                 <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105" onClick={handlerPrevImage}>
-                    <Image src={arrowBackIcon} alt="Back Icon" width={50} height={50} />
+                    <Image className="opacity-70" src={arrowBackIcon} alt="Back Icon" width={45} height={45} />
                 </div>
                 <Link className="hover:scale-105 transition-all ease-in-out duration-300 shadow-lg" href={"#"} >
-                    <Image alt={datas[(index)].title ? datas[index].title : datas[index].name} className="rounded-2xl w-fit" width={700} height={700} src={`https://image.tmdb.org/t/p/w500${datas[index].backdrop_path}`} />
+                    {
+                        datas.map((e, i) => {
+                            if(i === index) {
+                                return <Image alt={e.title ? e.title : e.name} className="rounded-2xl w-fit" width={700} height={700} src={`https://image.tmdb.org/t/p/w500${e.backdrop_path}`} />
+
+                            }
+                        })
+                    }
+                    {/* <Image alt={datas[(index)].title ? datas[index].title : datas[index].name} className="rounded-2xl w-fit" width={700} height={700} src={`https://image.tmdb.org/t/p/w500${datas[index].backdrop_path}`} /> */}
                 </Link>
                 <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105" onClick={handlerNextImage} >
-                    <Image src={arrowForward} alt="Forward" width={50} height={50} />
+                    <Image className="opacity-70" src={arrowForward} alt="Forward" width={45} height={45} />
                 </div>
             </div>
         </div>
