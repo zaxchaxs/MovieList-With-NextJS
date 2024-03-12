@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Card({datas}) {
+export default function Card({datas, cardTitle}) {
     const [limitData, setLimitData] = useState(14);
     const [isShowAllData, setShowAllData] = useState(true);
 
@@ -16,7 +16,7 @@ export default function Card({datas}) {
         <div className="w-full">
             <div className="flex justify-center p-4 items-center">
                 <div className="font-bold text-2xl">
-                    <h1 className="">Popular Movies & TV Series</h1>
+                    <h1 className="">{cardTitle}</h1>
                 </div>
             </div>
             <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 font-bold">

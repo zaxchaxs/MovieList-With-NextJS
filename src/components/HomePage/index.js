@@ -5,7 +5,7 @@ import Banner from "./Banner";
 import temporaryData from "../temporaryData";
 import Card from "./Card";
 
-export default function HomePage() {
+export default function HomePage({path, propsData}) {
     const [data, setData] = useState([]);
 
 
@@ -18,7 +18,7 @@ export default function HomePage() {
             }
         };
         try{
-            const res = await axios.get(`${process.env.API_BASE_ENDPOINT}/trending/all/day?language=en-US`, options);
+            const res = await axios.get(`${process.env.API_BASE_ENDPOINT + path}`, options);
             setData(() => res.data.results);
         } catch(e) {
             throw new Error(e)
@@ -31,9 +31,9 @@ export default function HomePage() {
     }, []);
     
     return(
-        <>
-            <Banner datas={data} />
-            <Card datas={data} />
-        </>
+         <main className="min-h-screen items-center py-16 bg-gray-200">
+            <Banner datas={data} propsData={propsData} />
+            <Card datas={data} cardTitle={propsData.cardTitle} />
+        </main>
     )
 }
