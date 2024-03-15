@@ -30,7 +30,7 @@ export default function HomePage({path, propsData}) {
     return(
          <main className="min-h-screen items-center py-16 bg-gray-200">
             <Banner datas={data} propsData={propsData} />
-            <Card datas={data} cardTitle={propsData.cardTitle} />
+            <Card datas={data} propsData={propsData} />
         </main>
     )
 }

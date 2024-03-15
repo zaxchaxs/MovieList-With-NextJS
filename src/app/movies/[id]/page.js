@@ -1,4 +1,5 @@
 import DetailPage from "@/components/DetailPage";
+import Card from "@/components/HomePage/Card";
 import axios from "axios";
 
 const fetchData = async (path) => {
@@ -17,11 +18,13 @@ const fetchData = async (path) => {
 }
 
 export default async function MoviesDetail ({params}) {
-    const data = await fetchData(`/movie/${params.id}`)
+    const movieDetail = await fetchData(`/movie/${params.id}`)
+    const recommendationsMovie = await fetchData(`/movie/${params.id}/recommendations`);
+    const cardTitle = "Recommendations"
     return (   
         <>
-            {/* <DetailPage path={`/movie/${params.id}`} /> */}
-            <DetailPage detailData={data} />
+            <DetailPage detailData={movieDetail} />
+            <Card propsData={{cardTitle}} datas={recommendationsMovie.results}  />
         </>
     )
 }

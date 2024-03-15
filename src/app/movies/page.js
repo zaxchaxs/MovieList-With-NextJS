@@ -6,7 +6,8 @@ export default function Movies() {
         title: "Here is popular movies.",
         desc: "Check the details of your favorite movies below.",
         placeholder: "Search for popular movies...",
-        cardTitle: "Popular Movies"
+        cardTitle: "Popular Movies",
+        mediaType: "movie"
     }
 
     return(
