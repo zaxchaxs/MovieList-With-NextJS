@@ -2,31 +2,28 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Banner from "./Banner";
-import temporaryData from "../temporaryData";
 import Card from "./Card";
 
 export default function HomePage({path, propsData}) {
     const [data, setData] = useState([]);
 
-
-    // Fetch Data
-    const fetchData = async () => {
-        const options = {
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${process.env.API_READ_ACCESS_TOKEN}`
+    useEffect(() => {
+        // Fetch Data
+        const fetchData = async () => {
+            const options = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${process.env.API_READ_ACCESS_TOKEN}`
+                }
+            };
+            try{
+                const res = await axios.get(`${process.env.API_BASE_ENDPOINT + path}`, options);
+                setData(() => res.data.results);
+            } catch(e) {
+                throw new Error(e)
             }
         };
-        try{
-            const res = await axios.get(`${process.env.API_BASE_ENDPOINT + path}`, options);
-            setData(() => res.data.results);
-        } catch(e) {
-            throw new Error(e)
-        }
-    };
 
-    useEffect(() => {
-        // setData(temporaryData);
         fetchData();
     }, []);
     

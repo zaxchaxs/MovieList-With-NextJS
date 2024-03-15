@@ -1,12 +1,12 @@
 import Detail from "./Details";
-import detailData from "@/components/temporaryDetail"
+import MoreDetails from "./MoreDetails";
 
-export default function DetailPage({id}) {
+export default function DetailPage({ detailData }) {
 
-    // Fetch api
     return(
-        <main className="min-h-screen items-center py-16 bg-gray-200">
-            <Detail detailData={detailData} id={id} />
+        <main className="min-h-screen items-center py-16 bg-gray-200 p-2">
+            <Detail detailData={detailData} />
+            <MoreDetails detailData={detailData} />
         </main>
     )
 }

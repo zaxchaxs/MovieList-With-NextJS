@@ -3,7 +3,6 @@ import Link from "next/link"
 import { useState } from "react"
 import arrowBackIcon from '@/../public/icon/arrow-back.svg'
 import arrowForward from '@/../public/icon/arrow-forward.svg'
-import { data } from "autoprefixer"
 
 export default function Banner({ datas, propsData }) {
 
@@ -38,18 +37,25 @@ export default function Banner({ datas, propsData }) {
                 </form>
             </div>
             <div className="group hidden md:flex items-center text-white w-1/2 gap-2">
-                <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105" onClick={handlerPrevImage}>
+                <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105 relative" onClick={handlerPrevImage}>
                     <Image className="opacity-70" src={arrowBackIcon} alt="Back Icon" width={45} height={45} />
                 </div>
+                <div className="relative hover:scale-105 transition-all ease-in-out duration-300 shadow-lg group/banner">
                     {
                         datas.map((e, i) => {
                             if(i === index) {
-                                return <Link key={e.id} className="hover:scale-105 transition-all ease-in-out duration-300 shadow-lg" href={"#"} >
-                                            <Image alt={e.title ? e.title : e.name} className="rounded-2xl w-fit" width={700} height={700} src={`https://image.tmdb.org/t/p/w500${e. backdrop_path}`} />
+                                return <Link key={e.id} href={`/movies/${e.id}`} >
+                                            <div className="absolute z-20 opacity-0 group-hover/banner:opacity-100 transition-all ease-in-out duration-300 font-bold p-4 bottom-4">
+                                                <h1 className="text-xl">{e.title ? e.title : e.name}</h1>
+                                            </div>
+                                            <div className=" h-full w-full bg-black absolute rounded-xl opacity-0 group-hover/banner:opacity-50 transition-all ease-in-out duration-300 cursor-pointer">
+                                            </div>
+                                            <Image alt={e.title ? e.title : e.name}className="rounded-2xl w-fit" width={700} height={700} src={`https://image.tmdb.org/t/p/w500${e. backdrop_path}`} />
                                         </Link>
                             }
                         })
                     }
+                </div>
                 <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105" onClick={handlerNextImage} >
                     <Image className="opacity-70" src={arrowForward} alt="Forward" width={45} height={45} />
                 </div>
