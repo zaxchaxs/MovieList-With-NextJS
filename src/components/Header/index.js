@@ -7,7 +7,6 @@ export default function Header() {
             <ContentHeader />
             <div>
                 {/* Search Bar */}
-                <p>test</p>
             </div>
 
         </header>

@@ -27,9 +27,14 @@ export default function HomePage({path, propsData}) {
         fetchData();
     }, []);
     
+    // HandlerFunctions
+    const handlerSearchData = (filteringData) => {
+        console.log(filteringData);
+
+    }
     return(
          <main className="min-h-screen items-center py-16 bg-gray-200">
-            <Banner datas={data} propsData={propsData} />
+            <Banner datas={data} propsData={propsData} onSearch={handlerSearchData} />
             <Card datas={data} propsData={propsData} />
         </main>
     )
