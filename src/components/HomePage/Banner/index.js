@@ -51,7 +51,7 @@ export default function Banner({ datas, propsData, onSearch }) {
                         datas.map((e, i) => {
                             if(i === index) {
                                 if(e.media_type) {
-                                    return <Link key={e.id} href={e.media_type === "movie" ? `/movies/${e.id}` : `/series/${e.id}`} >
+                                    return <Link key={e.id} href={e.media_type === "movie" ? `/movies/details/${e.id}` : `/series/${e.id}`} >
                                                 <div className="absolute z-20 opacity-0 group-hover/banner:opacity-100 transition-all ease-in-out duration-300 font-bold p-4 bottom-4">
                                                     <h1 className="text-xl">{e.title ? e.title : e.name}</h1>
                                                 </div>

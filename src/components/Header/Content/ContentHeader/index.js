@@ -16,12 +16,12 @@ export default function ContentHeader () {
     const [isMovieClicked, setMovieClicked] = useState(false);
     const [isSeriesClicked, setSeriesClicked] = useState(false);
     const routeMovies = {
-        popular : "/movies",
+        popular : "/movies/popular",
         topRated : "#",
         upComing : "#"
     };
     const routeSeries = {
-        popular : "/series",
+        popular : "/series/popular",
         topRated : "#",
         upComing : "#"
     };
