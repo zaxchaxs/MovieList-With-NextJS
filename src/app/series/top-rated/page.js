@@ -3,16 +3,16 @@ import HomePage from "@/components/HomePage";
 export default function Movies() {
 
     const propsData = {
-        title: "Here is popular TV Series.",
+        title: "Here Top Rated of TV Series.",
         desc: "Check the details of your favorite TV Series below. BTW, sometimes there's not found.",
         placeholder: "Search for popular Series...",
-        cardTitle: "Popular TV Series",
+        cardTitle: "Top Rated TV Series",
         mediaType: "tv"
     }
 
     return(
         <>
-            <HomePage path={"/tv/popular"} propsData={propsData} />
+            <HomePage path={"/tv/top_rated"} propsData={propsData} />
         </>
     )
 } 
