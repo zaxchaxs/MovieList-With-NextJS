@@ -35,7 +35,7 @@ export default function Card({datas, propsData, onResetData}) {
                                 </Link>     
                                 </li>;
                         };
-                        return <li key={data.id} className="hover:scale-105 transition-all ease-in-out duration-300 shadow-lg flex-none w-fit rounded-md bg-white p-2 " >
+                        return <li key={data.id} className="hover:scale-105 active:scale-100 transition-all ease-in-out duration-300 shadow-lg flex-none w-fit rounded-md bg-white p-2 " >
                                 <Link href={propsData.mediaType === "movie" ? `/movies/details/${data.id}` : `/series/details/${data.id}`} >
                                     <Image alt={data.title ? data.title : data.name} className="rounded-md w-fit" width={700} height={700} src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} />
                                     <h1 className="p-2" >{data.title ? data.title : data.name}</h1>

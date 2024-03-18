@@ -23,7 +23,7 @@ export default function ContentHeader () {
     const routeSeries = {
         popular : "/series/popular",
         topRated : "/series/top-rated",
-        upComing : "#"
+        onTheAir : "/series/on-the-air"
     };
 
     return(
@@ -53,7 +53,7 @@ function ListContent({ isMovieClicked, isSeriesClicked, route }) {
                 <Link href={route.topRated}>Top Rated</Link>
             </li>
             <li className="transform transition-transform duration-300 hover:translate-x-2 ease-in-out">
-                <Link href={route.upComing}>Up Coming</Link>
+                <Link href={route.upComing || route.onTheAir}>{route.upComing ? `Up Coming` : "On The Air"}</Link>
             </li>
         </ul>        
     )

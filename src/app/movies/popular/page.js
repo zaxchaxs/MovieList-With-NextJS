@@ -4,7 +4,7 @@ export default function Movies() {
 
     const propsData = {
         title: "Here is popular movies.",
-        desc: "Check the details of your favorite movies below. BTW, sometimes there's not found.",
+        desc: "Check the details of your favorite movies below.",
         placeholder: "Search for popular movies here...",
         cardTitle: "Popular Movies",
         mediaType: "movie"
