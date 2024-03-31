@@ -10,10 +10,4 @@
 .bg-banner {
     background-image: url('../../public/background/bg-banner.jpg');
     background-size: cover;
-    /* filter: blur(5px); */
-}
-
-.card-skeleton {
-    width: 100%;
-    height: 100px;
 }

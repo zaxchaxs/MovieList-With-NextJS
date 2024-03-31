@@ -47,7 +47,7 @@ export default function HomePage({path, propsData}) {
     return(
         <SkeletonTheme baseColor="#313131" highlightColor="#525252">
             <main className="min-h-screen items-center py-16 bg-gray-200">
-                <Banner datas={data} propsData={propsData} onSearch={handlerSearchData} />
+                <Banner datas={data} propsData={propsData} onSearch={handlerSearchData} isLoading={isLoading} />
                 <Card datas={data} propsData={propsData} onResetData={handlerResetData} isLoading={isLoading} />
             </main>
         </SkeletonTheme>

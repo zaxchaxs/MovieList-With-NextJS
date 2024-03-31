@@ -3,8 +3,10 @@ import Link from "next/link"
 import { useState } from "react"
 import arrowBackIcon from '@/../public/icon/arrow-back.svg'
 import arrowForward from '@/../public/icon/arrow-forward.svg'
+import { Island_Moments } from "next/font/google"
+import BannerSkeleton from "@/components/LoadingSkeleteon/BannerSkeleton"
 
-export default function Banner({ datas, propsData, onSearch }) {
+export default function Banner({ datas, propsData, onSearch, isLoading }) {
 
     const [index, setIndex] = useState(0);
     const [filterData, setFilterData] = useState("");
@@ -46,8 +48,11 @@ export default function Banner({ datas, propsData, onSearch }) {
                 <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105 relative" onClick={handlerPrevImage}>
                     <Image className="opacity-70" src={arrowBackIcon} alt="Back Icon" width={45} height={45} />
                 </div>
-                <div className="relative hover:scale-105 transition-all ease-in-out duration-300 shadow-lg group/banner active:scale-100">
+                {
+                    <div className="relative hover:scale-105 transition-all ease-in-out duration-300 shadow-lg group/banner active:scale-100">
                     {
+                        isLoading ? <BannerSkeleton />
+                        :
                         datas.map((e, i) => {
                             if(i === index) {
                                 if(e.media_type) {
@@ -72,6 +77,8 @@ export default function Banner({ datas, propsData, onSearch }) {
                         })
                     }
                 </div>
+                }
+
                 <div className="opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300 cursor-pointer hover:scale-105" onClick={handlerNextImage} >
                     <Image className="opacity-70" src={arrowForward} alt="Forward" width={45} height={45} />
                 </div>
