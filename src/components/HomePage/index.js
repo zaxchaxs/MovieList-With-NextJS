@@ -34,7 +34,7 @@ export default function HomePage({path, propsData}) {
             return;
         };
         const regex = new RegExp(filteringData, "i");
-        const filteredData = data.filter(data => regex.test(data.title));
+        const filteredData = data.filter(data => data.title ? regex.test(data.title) : regex.test(data.name));
         setData(filteredData);
     }
     const handlerResetData = () => {
