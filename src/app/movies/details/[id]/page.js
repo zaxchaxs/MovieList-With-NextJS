@@ -1,7 +1,8 @@
 import DetailPage from "@/components/DetailPage";
 import Card from "@/components/HomePage/Card";
 import axios from "axios";
-
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 const fetchData = async (path) => {
     const options = {
         headers: {
@@ -20,12 +21,13 @@ const fetchData = async (path) => {
 export default async function MoviesDetail ({params}) {
     const movieDetail = await fetchData(`/movie/${params.id}`)
     const recommendationsMovie = await fetchData(`/movie/${params.id}/recommendations`);
-    console.log(recommendationsMovie)
     const cardTitle = "Recommendations"
-    return (   
+    return (
         <>
+        <Suspense fallback={<Loading />}>
             <DetailPage detailData={movieDetail} />
             <Card propsData={{cardTitle}} datas={recommendationsMovie.results}/>
+        </Suspense>
         </>
     )
 }

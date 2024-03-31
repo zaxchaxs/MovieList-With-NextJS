@@ -11,3 +11,18 @@
     background-image: url('../../public/background/bg-banner.jpg');
     background-size: cover;
 }
+
+.custom-loader {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: 
+      radial-gradient(farthest-side,#450A0A 94%,#0000) top/16px 16px no-repeat,
+      conic-gradient(#0000 30%,#450A0A);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 16px),#000 0);
+    animation:s3 0.5s infinite linear;
+  }
+  
+  @keyframes s3{ 
+    100%{transform: rotate(1turn)}
+  }
