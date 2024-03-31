@@ -19,12 +19,22 @@ export default function Card({datas, propsData, onResetData, isLoading}) {
     return (
         <>
         {
-            isLoading ? <CardSkeleton cards={10} />
+            isLoading ? <CardSkeleton cards={10} />  
+            :
+            datas.length === 0 ?
+            <div className="w-full p-4  flex items-center justify-center">
+                <div className="p-2 ">
+                    <h1 className="text-xl text-gray-700 font-bold" >{`The movies or the series is not found in ${propsData.cardTitle}`}</h1>
+                    <div className="m-2 flex items-center justify-center">
+                        <button onClick={onResetData} className="p-2 px-4 text-white font-bold hover:bg-red-800 duration-200 active:bg-red-950 bg-red-950 rounded-lg cursor-pointer">OK</button>
+                    </div>
+                </div>
+            </div>
             :
             <div className="w-full">
                 <div className="flex justify-center p-4 items-center">
                     <div className="font-bold text-2xl">
-                        <h1 className="">{propsData.cardTitle || "Loading..."}</h1>
+                        <h1 className="text-sm sm:text-lg md:text-xl">{propsData.cardTitle || "Loading..."}</h1>
                     </div>
                 </div>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 font-bold p-2">
@@ -146,14 +156,14 @@ export default function Card({datas, propsData, onResetData, isLoading}) {
      )
     };
 
-    // return (
-    //     <div className="w-full p-4  flex items-center justify-center">
-    //         <div className="p-2 ">
-    //             <h1 className="text-xl text-gray-700 font-bold" >{`The movies or the series is not found in ${propsData.cardTitle}`}</h1>
-    //             <div className="m-2 flex items-center justify-center">
-    //                 <button onClick={onResetData} className="p-2 px-4 text-white font-bold hover:bg-red-800 duration-200 active:bg-red-950 bg-red-950 rounded-lg cursor-pointer">OK</button>
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
+    return (
+        <div className="w-full p-4  flex items-center justify-center">
+            <div className="p-2 ">
+                <h1 className="text-xl text-gray-700 font-bold" >{`The movies or the series is not found in ${propsData.cardTitle}`}</h1>
+                <div className="m-2 flex items-center justify-center">
+                    <button onClick={onResetData} className="p-2 px-4 text-white font-bold hover:bg-red-800 duration-200 active:bg-red-950 bg-red-950 rounded-lg cursor-pointer">OK</button>
+                </div>
+            </div>
+        </div>
+    )
 }
