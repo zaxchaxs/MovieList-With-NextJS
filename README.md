@@ -32,8 +32,9 @@ To run this project locally, follow these steps:
 
 5. Create a .env.local file in the root directory of the project and add your API key (if needed):
    ```bash
-   API_KEY: "(Your API KEY)",
-   API_BASE_ENDPOINT: "(Your API URL)"
+   NEXT_PUBLIC_API_KEY: "(Your API KEY)",
+   NEXT_PUBLIC_API_BASE_ENDPOINT: "(Your API URL)"
+   NEXT_PUBLIC_API_ACCESS_TOKEN: "(Your Access Token, you can get this in the TMDB API)"
    
 7. Start the development server:
    ```bash
@@ -45,5 +46,5 @@ To run this project locally, follow these steps:
 Contributions are welcome! If you would like to contribute to this project, please fork the repository and submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/license/MIT).
 
