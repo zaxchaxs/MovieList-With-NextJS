@@ -8,11 +8,11 @@ const fetchData = async (path) => {
     const options = {
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.API_READ_ACCESS_TOKEN}`
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_ACCESS_TOKEN}`
         }
     };
     try{
-        const res = await axios.get(`${process.env.API_BASE_ENDPOINT + path}`, options);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_ENDPOINT + path}`, options);
         return res.data;
     } catch(e) {
         throw new Error(e)

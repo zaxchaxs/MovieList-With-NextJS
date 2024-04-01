@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Banner from "./Banner";
 import Card from "./Card";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default function HomePage({path, propsData}) {
     const [data, setData] = useState([]);
@@ -13,11 +12,11 @@ export default function HomePage({path, propsData}) {
         const options = {
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${process.env.API_READ_ACCESS_TOKEN}`
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_ACCESS_TOKEN}`
             }
         };
         try{
-            const result = await axios.get(`${process.env.API_BASE_ENDPOINT + path}`, options);
+            const result = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_ENDPOINT + path}`, options);
             setData(result.data.results);
             setOriData(result.data.results);
             setIsLoading(false);
@@ -45,11 +44,9 @@ export default function HomePage({path, propsData}) {
     }
 
     return(
-        <SkeletonTheme baseColor="#313131" highlightColor="#525252">
-            <main className="min-h-screen items-center py-16 bg-gray-200">
-                <Banner datas={data} propsData={propsData} onSearch={handlerSearchData} isLoading={isLoading} />
-                <Card datas={data} propsData={propsData} onResetData={handlerResetData} isLoading={isLoading} />
-            </main>
-        </SkeletonTheme>
+        <main className="min-h-screen items-center py-16 bg-gray-200">
+            <Banner datas={data} propsData={propsData} onSearch={handlerSearchData} isLoading={isLoading} />
+            <Card datas={data} propsData={propsData} onResetData={handlerResetData} isLoading={isLoading} />
+        </main>
     )
 }
